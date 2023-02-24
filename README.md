@@ -37,3 +37,41 @@ porém sinta-se livre para ir além.
 - Usar UI5 Web Components for React
 - Usar SCSS;
 - Por fim, versione em um repositório público e nos encaminhe o link.
+
+
+## Instalação
+
+```bash
+$ npm install
+```
+
+## Rodar a aplicação
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Testes
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+## Testar via Swagger:
+```bash
+http://localhost:3000/api/
+```

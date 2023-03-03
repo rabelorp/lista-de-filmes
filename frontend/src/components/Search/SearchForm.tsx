@@ -4,17 +4,14 @@ import {
   ButtonDesign,
   FlexBox,
   InputType,
-  List,
-  StandardListItem,
 } from "@ui5/webcomponents-react";
-import "@ui5/webcomponents-icons/dist/paper-plane.js";
 
 import Input from "../../components/Form/Input/Input";
 import SearchFormValidationSchema from "./SearchFormValidationSchema";
 
 import { useState } from "react";
 import API from "../../api/Api";
-import { Link } from "react-router-dom";
+import ListMovies from "../List/ListMovies";
 
 const SearchForm = () => {
   const [data, setData] = useState([]);
@@ -56,15 +53,7 @@ const SearchForm = () => {
                 Pesquisar
               </Button>
             </Form>
-            <List>
-              {data.map((movie: any) => (
-                <Link to={`show/${movie.imdbID}`}>
-                  <StandardListItem data-id={movie.imdbID} key={movie.imdbID}>
-                    {movie.Title}
-                  </StandardListItem>
-                </Link>
-              ))}
-            </List>
+            <ListMovies data={data} />
           </FlexBox>
         )}
       </Formik>

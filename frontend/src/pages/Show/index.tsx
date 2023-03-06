@@ -1,24 +1,16 @@
-import {
-  BusyIndicator,
-  FlexBox,
-  FlexBoxAlignItems,
-  FlexBoxDirection,
-  FlexBoxJustifyContent,
-  Grid,
-  Text,
-  Title,
-  TitleLevel,
-} from "@ui5/webcomponents-react";
+import { Grid, Text, Title, TitleLevel } from "@ui5/webcomponents-react";
 
 import "./styles.scss";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/services/useFetch";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 export function ShowPage() {
-  const { id } = useParams<{ id: string }>();
-
   const [data, setData] = useState<any>([]);
+
+  const id = useSelector((state: RootState) => state.show);
 
   const GetData = async () => {
     const data = await useFetch(`movies/searchById/${id}`);
@@ -27,7 +19,7 @@ export function ShowPage() {
 
   useEffect(() => {
     GetData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -9,17 +9,18 @@ import {
 import Input from "../../components/Form/Input/Input";
 import SearchFormValidationSchema from "./SearchFormValidationSchema";
 
-import { useState } from "react";
 import API from "../../api/Api";
 import ListMovies from "../List/ListMovies";
+import { useDispatch } from "react-redux";
+import { moviesList } from "../../store/reducers/movies";
 
 const SearchForm = () => {
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
   const onSubmitSearchForm = async (values: any) => {
     const { data } = await API.get(
       `movies/searchByTitle?title=${values.title}`
     );
-    setData(data.Search);
+    dispatch(moviesList(data));
   };
 
   return (
@@ -53,7 +54,7 @@ const SearchForm = () => {
                 Pesquisar
               </Button>
             </Form>
-            <ListMovies data={data} />
+            <ListMovies />
           </FlexBox>
         )}
       </Formik>

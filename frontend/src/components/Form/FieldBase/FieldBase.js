@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { FlexBox, FlexBoxDirection } from '@ui5/webcomponents-react';
-import Label from '../Label/Label';
+import { FlexBox, FlexBoxDirection } from "@ui5/webcomponents-react";
+import Label from "../Label/Label";
 
 const FieldBase = ({ labelText, ...props }) => {
   return (
@@ -11,7 +11,7 @@ const FieldBase = ({ labelText, ...props }) => {
       {...props}
     >
       {labelText && (
-        <Label required={props.required} for={props.for} showColon={props.showColon}>
+        <Label required={props.required} htmlFor={props.for}>
           {labelText}
         </Label>
       )}

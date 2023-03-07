@@ -1,20 +1,35 @@
-import React from 'react';
+import React from "react";
 
-import { Switch as UI5Switch } from '@ui5/webcomponents-react';
-import FieldBase from '../FieldBase/FieldBase';
+import { Switch as UI5Switch } from "@ui5/webcomponents-react";
+import FieldBase from "../FieldBase/FieldBase";
 
 const style = {
   switch: {
-    width: 'min-content'
-  }
+    width: "min-content",
+  },
 };
 
-const Switch = ({ field, form: { values, setFieldValue }, labelText, ...props }) => {
+const Switch = ({
+  field,
+  form: { values, setFieldValue },
+  labelText,
+  ...props
+}) => {
   const value = values[field.name];
 
   return (
-    <FieldBase labelText={labelText} required={props.required} for={props.for} showColon={props.showColon}>
-      <UI5Switch checked={value} onChange={() => setFieldValue(field.name, !value)} style={style.switch} {...props} />
+    <FieldBase
+      labelText={labelText}
+      required={props.required}
+      htmlFor={props.for}
+      // showColon={props.showColon}
+    >
+      <UI5Switch
+        checked={value}
+        onChange={() => setFieldValue(field.name, !value)}
+        style={style.switch}
+        {...props}
+      />
     </FieldBase>
   );
 };
